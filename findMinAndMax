@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+#请使用迭代查找一个list中最小和最大值，并返回一个tuple
+
+def findMinAndMax(L):
+    if len(L) != 0:
+        max=L[0]
+        min=L[0]
+        TempList = L[1:]
+        for num in TempList:
+            if max < num:
+                max = num
+            if min > num:
+                min = num
+        return [min,max]
+    else:
+        return [None,None]

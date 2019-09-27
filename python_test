@@ -1,0 +1,10 @@
+# -*- coding: UTF-8 -*-
+# 删除首位空格
+def trim(s):
+    L = []
+    for x in range(len(s)):
+        if s[x].isspace() == False:
+			L.append(x)
+    print(s[L[0]:L[-1]+1])		    
+	
+trim('hello            ')

@@ -1,10 +1,13 @@
 # -*- coding: UTF-8 -*-
 # 删除首位空格
+# 利用切片操作，实现一个trim()函数，去除字符串首尾的空格，注意不要调用str的strip()方法：
+#
+
 def trim(s):
     L = []
+    if s.isspace():
+		return ""
     for x in range(len(s)):
         if s[x].isspace() == False:
 			L.append(x)
-    print(s[L[0]:L[-1]+1])		    
-	
-trim('hello            ')
+    return (s[L[0]:L[-1]+1])

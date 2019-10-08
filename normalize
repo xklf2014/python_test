@@ -6,7 +6,7 @@ from functools import reduce
 def normalize(l):
         U = []
         for s in l:
-                lowerst=''.join(map(str,s[1:-1])).lower()
+                lowerst=''.join(map(str,s[1:])).lower()
                 upperst=''.join(s[0]).upper()
                 U.append(upperst+lowerst)
         return U

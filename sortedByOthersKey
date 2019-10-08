@@ -1,0 +1,26 @@
+#用sorted()对上述列表分别按名字排序
+L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+
+def by_name(t):
+    def isString(obj):
+        return type(obj) is type('')
+    (X,Y)=t
+    if(isString(X)):
+        return X
+    else:
+        return Y
+#按成绩从高到低排序
+def by_score(t):
+    (X,Y)=t
+    if(X.isdigit()):
+        return X
+    else:
+        return Y
+
+L2 = sorted(L, key=by_name)
+print(L2)
+L2 = sorted(L, key=by_score)
+print(L2)
+
+
+

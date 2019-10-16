@@ -1,4 +1,5 @@
 #python2.7 斐波那契数列
+#对于Fib却报错。原因是__getitem__()传入的参数可能是一个int，也可能是一个切片对象slice，所以要做判断
 class Fib(object):
     def __init__(self):
         self.a, self.b = 0, 1 # 初始化两个计数器a，b
@@ -11,6 +12,29 @@ class Fib(object):
         if self.a > 100: # 退出循环的条件
             raise StopIteration()
         return self.a
+    def __getitem__(self, n):
+        if isinstance(n, int): # n是索引
+            a, b = 1, 1
+            for x in range(n):
+                a, b = b, a + b
+            return a
+        if isinstance(n, slice): # n是切片
+            start = n.start
+            stop = n.stop
+            if start is None:
+                start = 0
+            a, b = 1, 1
+            L = []
+            for x in range(stop+1):
+                if x >= start:
+                    L.append(a)
+                a, b = b, a + b
+            return L
 
-for n in Fib():
-     print(n)
+#for n in Fib():
+#     print(n)
+f = Fib()
+print(f[0:10])
+
+
+ 
